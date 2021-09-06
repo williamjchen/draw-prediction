@@ -1,21 +1,11 @@
+import React from 'react';
+import DrawCanvas from './drawCanvas'
 import './App.css';
 
 function App() {
-  const startDrawing = () => {
-
-  }
-
-  const finishDrawing = () => {
-    
-  }
-
   return (
-    <div>
-      <canvas 
-      
-      />
-    </div>
-  );
+    <DrawCanvas/>
+  )
 }
 
 export default App;
