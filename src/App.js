@@ -1,10 +1,10 @@
 import React from 'react';
-import DrawCanvas from './drawCanvas'
+import Canvas from './Canvas'
 import './App.css';
 
 function App() {
   return (
-    <DrawCanvas/>
+    <Canvas/>
   )
 }
 

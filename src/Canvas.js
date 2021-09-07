@@ -1,21 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export function DrawCanvas() {
+export function Canvas() {
     const [isDrawing, setIsDrawing] = useState(false)
     const canvasRef = useRef(null)
     const contextRef = useRef(null)
 
     useEffect(() => {
         const canvas = canvasRef.current
-        canvas.width = window.innerWidth * 2
-        canvas.height = window.innerHeight * 2
-        canvas.style.width = `${window.innerWidth}px`
-        canvas.style.height = `${window.innerHeight}px`
+        canvas.width = 1000
+        canvas.height = 1000
+        canvas.style.width = `500px`
+        canvas.style.height = `500px`
 
         const context = canvas.getContext("2d")
         context.scale(2, 2)
+        context.fillStyle = "black"
+        context.fillRect(0, 0, canvas.width, canvas.height)
         context.lineCap = "round"
-        context.strokeStyle = "black"
+        context.strokeStyle = "white"
         context.lineWidth = 5
         contextRef.current = context
     }, [])
@@ -35,6 +37,7 @@ export function DrawCanvas() {
     const draw = ({ nativeEvent }) => {
         if (!isDrawing) return
         const { offsetX, offsetY } = nativeEvent
+        console.log(`X: ${offsetX}  Y: ${offsetY}`)
         contextRef.current.lineTo(offsetX, offsetY)
         contextRef.current.stroke()
     }
@@ -42,21 +45,23 @@ export function DrawCanvas() {
     const clearCanvas = () => {
         const canvas = canvasRef.current
         const context = canvas.getContext("2d")
-        context.fillStyle = "white"
+        context.fillStyle = "black"
         context.fillRect(0, 0, canvas.width, canvas.height)
     }
 
     return (
         <div>
-            <canvas
-                onMouseDown={startDrawing}
-                onMouseUp={finishDrawing}
-                onMouseMove={draw}
-                ref={canvasRef}
-            />
+            <div>
+                <canvas
+                    onMouseDown={startDrawing}
+                    onMouseUp={finishDrawing}
+                    onMouseMove={draw}
+                    ref={canvasRef}
+                />
+            </div>
             <button onClick = {clearCanvas}></button>
         </div>
     )
 }
 
-export default DrawCanvas
+export default Canvas
