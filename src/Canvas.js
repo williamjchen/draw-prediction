@@ -46,12 +46,13 @@ function Canvas() {
     const clearCanvas = () => {
         const canvas = canvasRef.current
         const context = canvas.getContext("2d")
+        setIsDrawing(false)
         context.fillStyle = "black"
         context.fillRect(0, 0, canvas.width, canvas.height)
     }
 
     return (
-        <div>
+        <div className="Vertical">
             <canvas
                 onMouseDown={startDrawing}
                 onMouseUp={finishDrawing}

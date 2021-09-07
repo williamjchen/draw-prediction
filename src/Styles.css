@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
+.Vertical {
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    width: 500px;
+    max-width: 100%;
+}
+
 .bigContainer {
     background-color: #2E293D;
     display: flex;
@@ -10,10 +18,7 @@
 
 .subContainer {
     background-color: #645986;
-    text-align: center;
     align-self: center;
-    align-items: center;
-    height:90%;
+    height:85%;
     width:90%;
-    max-width: 100%;
 }
