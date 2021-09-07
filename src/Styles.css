@@ -2,8 +2,6 @@
 
 .Vertical {
     text-align: center;
-    align-self: center;
-    align-items: center;
     width: 500px;
     max-width: 100%;
 }
