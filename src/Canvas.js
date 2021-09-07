@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Button from './components/Button'
+import './Styles.css';
 
-export function Canvas() {
+function Canvas() {
     const [isDrawing, setIsDrawing] = useState(false)
     const canvasRef = useRef(null)
     const contextRef = useRef(null)
@@ -37,7 +39,6 @@ export function Canvas() {
     const draw = ({ nativeEvent }) => {
         if (!isDrawing) return
         const { offsetX, offsetY } = nativeEvent
-        console.log(`X: ${offsetX}  Y: ${offsetY}`)
         contextRef.current.lineTo(offsetX, offsetY)
         contextRef.current.stroke()
     }
@@ -51,15 +52,13 @@ export function Canvas() {
 
     return (
         <div>
-            <div>
-                <canvas
-                    onMouseDown={startDrawing}
-                    onMouseUp={finishDrawing}
-                    onMouseMove={draw}
-                    ref={canvasRef}
-                />
-            </div>
-            <button onClick = {clearCanvas}></button>
+            <canvas
+                onMouseDown={startDrawing}
+                onMouseUp={finishDrawing}
+                onMouseMove={draw}
+                ref={canvasRef}
+            />
+            <Button onClick = {clearCanvas}>Clear Canvas</Button>
         </div>
     )
 }

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+.bigContainer {
+    background-color: #2E293D;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.subContainer {
+    background-color: #645986;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    height:90%;
+    width:90%;
+    max-width: 100%;
+}
